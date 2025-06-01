@@ -1,3 +1,6 @@
+import os
+
+import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from database_sql_alchemy.database import engine,Base
@@ -20,6 +23,7 @@ def road_root():
 
 
 
-
-
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app",host="0.0.0.0", port=port)
 
